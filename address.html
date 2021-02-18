@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Roboto Condensed -->
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<title>BikeShop</title>
+		<link rel="shortcut icon" href="img/03.png">
+	</head>
+	<body>
+		<header>
+			<div class="header">
+				<div class="logo">
+					<div class="icon">
+						<img src="img/01.png">
+					</div>
+					<div class="name-shop">
+						BikeShop
+					</div>
+				</div>
+				<div class="navigation">
+					<div>
+						<a href="index.html">Main page</a>
+						<a href="address.html">Location</a>
+						<a href="contact.html">Write to us</a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="sidebar-left">
+		</div>
+		<main>
+			<div class="address-file__contacts">
+				<div class="shop-contacts">
+					<div class="location">
+						<div class="location__title">
+							Location
+						</div>
+						<div class="location__text">
+							<div class="location__address">
+								156, Bohdan Khmelnytsky Street
+								<br>
+								Vinnytsya city
+							</div>
+							<div class="location__number">
+								+38(085)914-38-45
+								<br>
+								+38(037)496-32-76
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="map">
+					<script>
+						function initMap(){
+							var opt={
+								center: {lat: 49.2396074, lng:28.5098205},
+									zoom: 15
+								}
+							var map = new google.maps.Map(document.getElementById("map"), opt);
+						}
+					</script>
+					<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDc3a-ilRqFju8F8pck8osQKXvmbxKTJ18&callback=initMap"></script>
+				</div>
+			</div>
+		</main>
+		<div class="sidebar-right">
+		
+		</div>
+		<footer>
+			<div>bikeShop 2021</div>
+		</footer>
+	</body>
+</html>
