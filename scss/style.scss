@@ -94,9 +94,10 @@ header{
 
 main{
   grid-area: main;
+  padding: 20px;
 }
 .main{
-  margin: 20px;
+  // margin: 20px;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   display: grid;
@@ -118,10 +119,10 @@ main{
   .two{grid-area: goods-two;}
   .three{grid-area: goods-three;}
   .four{grid-area: goods-four;}
-  .five{grid-area: goods-five}
-  .six{grid-area: goods-six}
-  .seven{grid-area: goods-seven}
-  .eight{grid-area: goods-eight}
+  .five{grid-area: goods-five;}
+  .six{grid-area: goods-six;}
+  .seven{grid-area: goods-seven;}
+  .eight{grid-area: goods-eight;}
 }
 .wrap__goods:hover{
   box-shadow: 0 0 10px black;
@@ -176,6 +177,18 @@ main{
     }
   }
 }
+#autocomplete{
+  width: 100%;
+  border: 1px solid black;
+  margin-bottom: 20px;
+  font-size: 14px;
+  height: 30px;
+  padding-left: 10px;
+  &:focus{
+    box-shadow: 0px 0px 5px black;
+  }
+}
+
 // address-file
 .address-file__contacts{
   width: 100%;
@@ -261,6 +274,10 @@ main{
 .sidebar-right{
   grid-area: sidebar-right;
   border-left: 2px solid $color;
+  .calendar{
+    margin-top: 10px;
+    width: 100%;
+  }
 }
 
 footer{
@@ -310,6 +327,12 @@ footer{
   }
   .sidebar-right{
     border-left: none;
+    .calendar{
+      margin: 20px 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
   .customer-contacts__text{
     text-shadow: 0 0 1px black;
@@ -354,7 +377,7 @@ footer{
   }
   .shop-contacts{
     width: 100%;
-    height: auto;
+    height: 170px;
   }
   .location{
     padding: 20px 0px 10px 0px !important;
@@ -366,6 +389,6 @@ footer{
   }
   #map{
     width: 100%;
-    height: 100%;
+    height: 300px;
   }
 }

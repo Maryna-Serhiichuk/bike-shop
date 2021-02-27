@@ -8,7 +8,13 @@
 		<!-- CSS -->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<title>BikeShop</title>
-		<link rel="shortcut icon" href="img/03.png">
+		<link rel="shortcut icon" href="img/04.png">
+
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" href="css/jquery-ui.css">
+
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	</head>
 	<body>
 		<header>
@@ -33,6 +39,10 @@
 		<div class="sidebar-left">
 		</div>
 		<main>
+			<div class="ui-widget">
+				<label for="autocomplete"></label>
+				<input id="autocomplete" placeholder="search">
+			</div>
 			<div class="main">
 				<div class="wrap__goods one">
 					<div class="goods">
@@ -237,10 +247,15 @@
 			</div>	
 		</main>
 		<div class="sidebar-right">
-
+			<div class="calendar">
+				<div id="datepicker"></div>
+			</div>
 		</div>
 		<footer>
 			<div>bikeShop 2021</div>
 		</footer>
+
+		<script src="js/autocomplete.js"></script>
+		<script src="js/script.js"></script>
 	</body>
 </html>

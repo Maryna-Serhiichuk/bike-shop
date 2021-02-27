@@ -142,10 +142,10 @@ main {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: main;
+  padding: 20px;
 }
 
 .main {
-  margin: 20px;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   display: grid;
@@ -258,6 +258,18 @@ main {
   margin: 0px 4px;
 }
 
+#autocomplete {
+  width: 100%;
+  border: 1px solid black;
+  margin-bottom: 20px;
+  font-size: 14px;
+  height: 30px;
+  padding-left: 10px;
+}
+#autocomplete:focus {
+  box-shadow: 0px 0px 5px black;
+}
+
 .address-file__contacts {
   width: 100%;
   height: 100%;
@@ -348,6 +360,10 @@ main {
   grid-area: sidebar-right;
   border-left: 2px solid #4f7b82;
 }
+.sidebar-right .calendar {
+  margin-top: 10px;
+  width: 100%;
+}
 
 footer {
   -ms-grid-row: 3;
@@ -409,6 +425,12 @@ footer {
   .sidebar-right {
     border-left: none;
   }
+  .sidebar-right .calendar {
+    margin: 20px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   .customer-contacts__text {
     text-shadow: 0 0 1px black;
@@ -460,7 +482,7 @@ footer {
 
   .shop-contacts {
     width: 100%;
-    height: auto;
+    height: 170px;
   }
 
   .location {
@@ -474,7 +496,7 @@ footer {
 
   #map {
     width: 100%;
-    height: 100%;
+    height: 300px;
   }
   header {
     -ms-grid-row: 1;
