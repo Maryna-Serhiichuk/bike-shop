@@ -70,21 +70,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
+  margin-top: 70px;
   font-family: "Roboto Condensed";
   height: 100vh;
   width: 100%;
   display: grid;
   grid-template-columns: 220px auto 260px;
-  grid-template-rows: 70px auto 60px;
-  grid-template-areas: "header header header" "sidebar-left main sidebar-right" "footer footer footer";
+  grid-template-rows: auto 60px;
+  grid-template-areas: "sidebar-left main sidebar-right" "footer footer footer";
 }
 
 header {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 70px;
+  z-index: 20;
   box-shadow: 0 0 10px black;
-  grid-area: header;
   background: #4f7b82;
 }
 
@@ -131,7 +134,7 @@ header {
 }
 
 .sidebar-left {
-  -ms-grid-row: 2;
+  -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: sidebar-left;
   border-right: 2px solid #4f7b82;
@@ -139,7 +142,7 @@ header {
 }
 
 main {
-  -ms-grid-row: 2;
+  -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: main;
   padding: 20px;
@@ -355,7 +358,7 @@ main {
 }
 
 .sidebar-right {
-  -ms-grid-row: 2;
+  -ms-grid-row: 1;
   -ms-grid-column: 3;
   grid-area: sidebar-right;
   border-left: 2px solid #4f7b82;
@@ -365,8 +368,103 @@ main {
   width: 100%;
 }
 
+.homePage {
+  width: 100vw;
+}
+
+.homePage-fullscreen {
+  height: 100vh;
+  width: 100%;
+  background: grey;
+  display: flex;
+}
+
+.fullscreen-slider {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.fullscreen-slider img {
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+.slick-list {
+  overflow: hidden;
+}
+
+.slick-track {
+  display: flex;
+}
+
+.fullscreen-slider {
+  position: relative;
+}
+.fullscreen-slider .slick-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 19;
+  font-size: 0;
+  width: 50px;
+  height: 80px;
+}
+.fullscreen-slider .slick-prev {
+  left: 30px;
+  background: url("../img/icon/arrow-left.png") 0 0/100% no-repeat;
+  opacity: 0.6;
+  transition-duration: 200ms;
+}
+.fullscreen-slider .slick-prev:hover {
+  opacity: 0.8;
+}
+.fullscreen-slider .slick-next {
+  right: 30px;
+  background: url("../img/icon/arrow-right.png") 0 0/100% no-repeat;
+  opacity: 0.6;
+  transition-duration: 200ms;
+}
+.fullscreen-slider .slick-next:hover {
+  opacity: 0.8;
+}
+.fullscreen-slider .slick-dots {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.fullscreen-slider .slick-dots li {
+  list-style: none;
+  margin: 0px 10px;
+}
+.fullscreen-slider .slick-dots li.slick-active button {
+  background: rgba(255, 255, 255, 0.7);
+}
+.fullscreen-slider .slick-dots button {
+  font-size: 0;
+  width: 35px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  transition-duration: 300ms;
+}
+.fullscreen-slider .slick-dots button:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.homePage-content {
+  margin: 30px 60px;
+  font-size: 20px;
+}
+
 footer {
-  -ms-grid-row: 3;
+  -ms-grid-row: 2;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: footer;
@@ -381,7 +479,6 @@ footer {
 
 @media (max-width: 1100px) {
   .main {
-    margin: 20px;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
     display: grid;
@@ -412,9 +509,14 @@ footer {
 }
 @media (max-width: 786px) {
   body {
+    margin-top: 100px;
     grid-template-columns: 1fr;
-    grid-template-rows: 100px 50px auto auto 60px;
-    grid-template-areas: "header" "sidebar-left" "main" "sidebar-right" "footer";
+    grid-template-rows: 50px auto auto 60px;
+    grid-template-areas: "sidebar-left" "main" "sidebar-right" "footer";
+  }
+
+  header {
+    height: 100px;
   }
 
   .sidebar-left {
@@ -498,25 +600,20 @@ footer {
     width: 100%;
     height: 300px;
   }
-  header {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-  }
   .sidebar-left {
-    -ms-grid-row: 2;
+    -ms-grid-row: 1;
     -ms-grid-column: 1;
   }
   main {
-    -ms-grid-row: 3;
+    -ms-grid-row: 2;
     -ms-grid-column: 1;
   }
   .sidebar-right {
-    -ms-grid-row: 4;
+    -ms-grid-row: 3;
     -ms-grid-column: 1;
   }
   footer {
-    -ms-grid-row: 5;
+    -ms-grid-row: 4;
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
   }
