@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="Author" content="marynasehiichuk">
+		<!-- Roboto Condensed -->
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<title>BikeShop</title>
+		<link rel="shortcut icon" href="img/04.png">
+
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" href="css/jquery-ui.css">
+
+		<!-- <link rel="import" href="index.html"> -->
+
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	</head>
+	<body>
+		<header>
+			<div class="header">
+				<div class="logo">
+					<div class="icon">
+						<img src="img/01.png">
+					</div>
+					<div class="name-shop">
+						BikeShop
+					</div>
+				</div>
+				<div class="navigation active">
+					<div>
+						<a href="homePage.html">Info</a>
+						<a href="index.html">Catalog</a>
+						<a href="address.html">Location</a>
+						<a href="contact.html">Write to us</a>
+						<a href="registration.html">Log In</a>
+						<a href="payment.html">Orders</a>
+					</div>
+				</div>
+				<div class="burger-menu__container">
+					<div class="burger-menu">
+						<span></span>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="sidebar-left">
+		</div>
+		<main>
+			
+			<div class="pay-blank__container">
+				<div class="pay-blank">
+					<div class="pay-blank__item">Model of bike: <span class="pay-blank__item-get"></span></div>
+					<div class="pay-blank__item">Сomment: <span class="pay-blank__item-get"></span></div>
+					<div class="pay-blank__item">First Name: <span class="pay-blank__item-get"></span></div>
+					<div class="pay-blank__item">Last Name: <span class="pay-blank__item-get"></span></div>
+					<div class="pay-blank__item">Street Address: <span class="pay-blank__item-get"></span></div>
+					<div class="pay-blank__item">Region: <span class="pay-blank__item-get"></span></div>
+					<div class="pay-blank__item">Zip: <span class="pay-blank__item-get"></span></div>
+					<div class="pay-blank__item">Phone: <span class="pay-blank__item-get"></span></div>
+					<div class="pay-blank__item">Delivery Address: <span class="pay-blank__item-get"></span></div>
+					<div class="pay-blank__item">Delivery Date:
+						<span class="pay-blank__item-get"></span>
+						<span class="pay-blank__item-get"></span>
+						<span class="pay-blank__item-get"></span>
+					</div>
+					<div class="pay-blank__item-type-card">Type of Credit Card: <span class="pay-blank__item-type-card-get"></span></div>
+					<div class="pay-blank__item">Card number: <span class="pay-blank__item-get"></span></div>
+					<div class="pay-blank__item">Expiration: <span class="pay-blank__item-get"></span></div>
+					<div class="pay-blank__item">CVV: <span class="pay-blank__item-get"></span></div>
+
+					<div class="pay-blank__item">Name: <span class="pay-blank__item-get"></span></div>
+					<div class="pay-blank__item">Password: <span class="pay-blank__item-get"></span></div>
+
+				</div>
+			</div>
+
+			<script>
+				
+				let getPayBlank = localStorage.getItem("dataPayBlank");
+				getPayBlank = JSON.parse(getPayBlank);
+
+				// let payBlankItem = document.querySelectorAll('.pay-blank__item');
+				let payBlankItemInfo = document.querySelectorAll('.pay-blank__item-get');
+
+				for(let i = 0; i < payBlankItemInfo.length; i++){
+					payBlankItemInfo[i].textContent = getPayBlank[i];
+				}
+
+				let typeOfCardBlank = localStorage.getItem("typeOfCard");
+				console.log(typeOfCardBlank);
+
+				let typeOfCardGet = document.querySelector('.pay-blank__item-type-card-get');
+
+				if(typeOfCardBlank == "mastercard"){
+					typeOfCardGet.innerHTML = '<img src="img/card/mastercard.png">';
+				} else if (typeOfCardBlank == "visa"){
+					typeOfCardGet.innerHTML = '<img src="img/card/visa.png">';
+				}
+
+			</script>
+
+		</main>
+		<div class="sidebar-right">
+			<div class="calendar">
+				<div id="datepicker"></div>
+			</div>
+		</div>
+		<footer>
+			<div>bikeShop 2021</div>
+		</footer>
+
+		<!-- JS -->
+		<script src="js/burgerMenu.js"></script>
+		<!-- <script src="js/paymentForm.js"></script> -->
+		<script src="js/script.js"></script>
+	</body>
+</html>

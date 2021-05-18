@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -318,7 +319,7 @@ main {
   margin: 50px 25%;
 }
 
-.customer-contacts__text {
+.title-page__text {
   font-size: 40px;
   margin-bottom: 20px;
 }
@@ -412,9 +413,196 @@ input.true-registr {
   font-size: 18px;
 }
 
-.message__text {
+.design-message__text {
   color: #cf181b;
   font-size: 11px;
+}
+
+#payment {
+  width: 100%;
+  grid-column-gap: 30px;
+  grid-row-gap: 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto auto;
+  grid-template-areas: "pay-title pay-title pay-title" "pay-model-bike pay-customer pay-credit-card" "pay-date-delivery pay-address-delivery pay-save-account";
+}
+#payment .title-page__text {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-area: pay-title;
+}
+#payment .pay-model-bike__block {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: pay-model-bike;
+}
+#payment .pay-customer__block {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: pay-customer;
+}
+#payment .pay-address-delivery__block {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+  grid-area: pay-address-delivery;
+}
+#payment .pay-date-delivery__block {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: pay-date-delivery;
+}
+#payment .pay-credit-card__block {
+  -ms-grid-row: 3;
+  -ms-grid-column: 5;
+  grid-area: pay-credit-card;
+}
+#payment .pay-save-account__block {
+  -ms-grid-row: 5;
+  -ms-grid-column: 5;
+  grid-area: pay-save-account;
+}
+#payment div.pay__block {
+  padding: 3px 0px;
+  margin-bottom: 7px;
+}
+#payment dl {
+  font-size: 15px;
+}
+#payment select {
+  background: transparent;
+}
+#payment input, #payment .pay_menu {
+  height: 35px;
+  width: 100%;
+  border: 1px solid black;
+  margin: 7px 0px 0px 0px;
+  padding: 0px 0px 5px 10px;
+  font-size: 16px;
+}
+#payment input:focus, #payment .pay_menu:focus {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+#payment .pay-block__container {
+  border-top: 2px solid #4f7b82;
+}
+#payment .date-pay_menu {
+  max-width: auto !important;
+}
+#payment .pay__date-delivery {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pay__title {
+  text-align: center !important;
+}
+
+.pay_menu.textarea {
+  height: 120px !important;
+  padding-top: 5px !important;
+  font-size: 14px !important;
+  font-family: Arial;
+}
+
+#create-account__block {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.checkbox-display-none {
+  display: flex;
+  margin: 8px 0px;
+}
+.checkbox-display-none input {
+  position: absolute;
+  visibility: hidden;
+}
+.checkbox-display-none label {
+  cursor: pointer;
+  display: inline-block;
+  display: flex;
+}
+.checkbox-display-none label span {
+  cursor: pointer;
+  display: block;
+  margin: 3px 0px 0px 5px;
+}
+.checkbox-display-none label div {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  border: 1px solid black;
+}
+
+#address-repeat-pay:checked ~ .address-repeat-pay div,
+#address-save-account:checked ~ .address-save-account div {
+  background: #4f7b82;
+}
+#address-repeat-pay:checked ~ .address-repeat-pay div:before,
+#address-save-account:checked ~ .address-save-account div:before {
+  position: absolute;
+  content: "✔";
+  display: block;
+  margin: -3px 0px 0px 0px;
+  font-size: 22px;
+  color: white;
+}
+
+#type-credit-card__block {
+  display: flex;
+  justify-content: space-around;
+}
+#type-credit-card__block input {
+  position: absolute;
+  visibility: hidden;
+}
+#type-credit-card__block label {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+#type-credit-card__block label:hover {
+  border-radius: 10px;
+  background: #e6e6e6;
+  box-shadow: inset 0px 0px 20px 12px white;
+}
+#type-credit-card__block label img {
+  width: 70%;
+}
+
+#visa-type-card:checked ~ .visa-type-card,
+#mastercard-type-card:checked ~ .mastercard-type-card {
+  background: gainsboro;
+  box-shadow: inset 0px 0px 20px 12px white;
+}
+
+.pay-blank__container {
+  display: flex;
+  justify-content: center;
+}
+
+.pay-blank {
+  margin: 50px 0px 0px 0px;
+  font-size: 23px;
+}
+
+.pay-blank__item,
+.pay-blank__item-type-card {
+  margin: 15px 0px;
+  color: grey;
+}
+.pay-blank__item img,
+.pay-blank__item-type-card img {
+  margin-top: -25px;
+  margin-bottom: -25px;
+  height: 70px;
+}
+
+.pay-blank__item-get {
+  color: black;
 }
 
 .homePage {
@@ -527,6 +715,12 @@ footer {
 }
 
 @media (max-width: 1100px) {
+  #payment {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: "pay-title pay-title" "pay-model-bike pay-date-delivery " "pay-customer pay-credit-card" "pay-address-delivery pay-save-account";
+  }
+
   .main {
     grid-column-gap: 20px;
     grid-row-gap: 20px;
@@ -539,21 +733,54 @@ footer {
   .image img {
     height: 70px;
   }
+
   .wrap__goods .one {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
   }
+
   .wrap__goods .two {
     -ms-grid-row: 1;
     -ms-grid-column: 3;
   }
+
   .wrap__goods .three {
     -ms-grid-row: 3;
     -ms-grid-column: 1;
   }
+
   .wrap__goods .four {
     -ms-grid-row: 3;
     -ms-grid-column: 3;
+  }
+  #payment .title-page__text {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+  }
+  #payment .pay-model-bike__block {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+  }
+  #payment .pay-customer__block {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+  }
+  #payment .pay-address-delivery__block {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+  }
+  #payment .pay-date-delivery__block {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+  }
+  #payment .pay-credit-card__block {
+    -ms-grid-row: 3;
+    -ms-grid-column: 2;
+  }
+  #payment .pay-save-account__block {
+    -ms-grid-row: 4;
+    -ms-grid-column: 2;
   }
 }
 @media (max-width: 786px) {
@@ -613,7 +840,7 @@ footer {
     align-items: center;
   }
 
-  .customer-contacts__text {
+  .title-page__text {
     text-shadow: 0 0 1px black;
   }
 
@@ -788,5 +1015,41 @@ footer {
     -ms-grid-row: 4;
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
+  }
+}
+@media (max-width: 500px) {
+  #payment {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(7, auto);
+    grid-template-areas: "pay-title" "pay-model-bike" "pay-customer" "pay-address-delivery" "pay-date-delivery" "pay-credit-card" "pay-save-account";
+  }
+  #payment .title-page__text {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
+  #payment .pay-model-bike__block {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+  }
+  #payment .pay-customer__block {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+  }
+  #payment .pay-address-delivery__block {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+  }
+  #payment .pay-date-delivery__block {
+    -ms-grid-row: 5;
+    -ms-grid-column: 1;
+  }
+  #payment .pay-credit-card__block {
+    -ms-grid-row: 6;
+    -ms-grid-column: 1;
+  }
+  #payment .pay-save-account__block {
+    -ms-grid-row: 7;
+    -ms-grid-column: 1;
   }
 }

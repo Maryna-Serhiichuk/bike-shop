@@ -11,7 +11,7 @@ let conPasswordRegistrVal;
 let data;
 let buttonRegistr = document.querySelector('#registration__button');
 let numMessage;
-let messageText = document.querySelectorAll('.message__text');
+let messageText = document.querySelectorAll('.regitr-message__text');
 
 buttonRegistr.addEventListener('click', function(e) {
 	e.preventDefault();

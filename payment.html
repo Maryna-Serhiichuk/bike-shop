@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="Author" content="marynasehiichuk">
+		<!-- Roboto Condensed -->
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<title>BikeShop</title>
+		<link rel="shortcut icon" href="img/04.png">
+
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" href="css/jquery-ui.css">
+
+		<!-- <link rel="import" href="index.html"> -->
+
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	</head>
+	<body>
+		<header>
+			<div class="header">
+				<div class="logo">
+					<div class="icon">
+						<img src="img/01.png">
+					</div>
+					<div class="name-shop">
+						BikeShop
+					</div>
+				</div>
+				<div class="navigation active">
+					<div>
+						<a href="homePage.html">Info</a>
+						<a href="index.html">Catalog</a>
+						<a href="address.html">Location</a>
+						<a href="contact.html">Write to us</a>
+						<a href="registration.html">Log In</a>
+						<a href="payment.html">Orders</a>
+					</div>
+				</div>
+				<div class="burger-menu__container">
+					<div class="burger-menu">
+						<span></span>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="sidebar-left">
+		</div>
+		<main>
+			<div class="payment__container">
+				<form id="payment">
+					<div class="title-page__text pay__title">
+						<div>Payment</div> <!-- переназвати оформлення замовлення -->
+					</div>
+					<!-- перша сеція -->
+					<div class="pay-model-bike__block pay-block__container">
+						<div class="pay__block">
+							<dl>Choose model of bike</dl>
+							<select id="pay-list-goods" name="choose-model-bike" class="pay_menu pay-blank__item-set">
+							</select>
+							<span class="payment-message__text design-message__text"></span>
+						</div>
+						<div class="pay__block">
+							<dl>Сomment</dl>
+							<textarea id="pay-list-goods-coment" class="drop-down-list pay_menu textarea pay-blank__item-set"></textarea>
+						</div>
+					</div>
+					<!-- друга сеція -->
+					<div class="pay-customer__block pay-block__container">
+						<div class="pay__block">
+							<dl>First Name</dl>
+							<input id="name-pay" class="pay-blank__item-set" type="text" name="name-pay" placeholder="Alex">
+							<span class="payment-message__text design-message__text"></span>
+						</div>
+						<div class="pay__block">
+							<dl>Last Name</dl>
+							<input id="surname-pay" class="pay-blank__item-set" type="text" name="surname-pay" placeholder="Smit">
+							<span class="payment-message__text design-message__text"></span>
+						</div>
+						<div class="pay__block">
+							<dl>Street Address</dl>
+							<input id="address-pay" class="pay-blank__item-set" type="text" name="address-pay" placeholder="29 Danila Nechaya str.">
+							<span class="payment-message__text design-message__text"></span>
+						</div>
+						<div class="pay__block">
+							<dl>Region</dl>
+							<select id="city-pay" name="choose-model-bike" class="pay_menu pay-blank__item-set">
+								<option>Kiyv</option>
+								<option>Bar</option>
+								<option selected="selected">Lviv</option>
+								<option>Ternopil</option>
+								<option>Poltava</option>
+							</select>
+							<span class="payment-message__text design-message__text"></span>
+						</div>
+						<div class="pay__block">
+							<dl>Zip</dl>
+							<input id="zip-pay" class="pay-blank__item-set" type="text" name="zip-pay" placeholder="21000">
+							<span class="payment-message__text design-message__text"></span>
+						</div>
+						<div class="pay__block">
+							<dl>Phone</dl>
+							<input id="phone-pay" class="pay-blank__item-set" type="text" name="phone-pay" placeholder="38 023 685 42 13">
+							<span class="payment-message__text design-message__text"></span>
+						</div>
+					</div>
+					<!-- третя сеція -->
+					<div class="pay-address-delivery__block pay-block__container">
+						<div class="pay-address-repeat__container checkbox-display-none">
+							<input id="address-repeat-pay" type="checkbox" name="address-repeat-pay">
+							<label for="address-repeat-pay" class="address-repeat-pay">
+								<div></div>
+								<span>Home address</span>
+							</label>
+						</div>
+						<!-- якщо чекбокс працює пропадає цей блок -->
+						<div id="delivery-address-repeat" class="pay__block">
+							<dl>Delivery Address</dl>
+							<input id="delivery-address-pay" class="pay-blank__item-set" type="text" name="delivery-address-pay" placeholder="47 Bloka str.">
+							<span class="delivery-address-repeat__message design-message__text"></span>
+						</div>
+					</div>
+					<script>
+						let deliveryAddressCheckbox = document.querySelector('#address-repeat-pay');
+						let deliveryAddressBlock = document.querySelector('#delivery-address-repeat');
+
+						function deliveryAddressBlockDesign(input, block) {
+							if(input.checked){
+								block.style.pointerEvents = 'none';
+								block.style.opacity = '0.3';
+							} else if (!input.checked) {
+								block.style.pointerEvents = 'auto';
+								block.style.opacity = '1';
+							}
+						}
+
+						deliveryAddressCheckbox.onchange = function() {
+							deliveryAddressBlockDesign(deliveryAddressCheckbox, deliveryAddressBlock);
+						}
+					</script>
+					<!-- четверта сеція -->
+					<div class="pay-date-delivery__block pay-block__container">
+						<div class="pay__block">
+							<dl>Delivery Date</dl>
+							<div class="pay__date-delivery">
+								<span>
+									<!-- <label for="day-delivery">Day:</label> -->
+									<select id="day-delivery" class="pay_menu date-pay_menu pay-blank__item-set" name="day-delivery">
+									</select>
+								</span>
+
+								<span>
+									<!-- <label for="month-delivery">Month:</label> -->
+									<select id="month-delivery" class="pay_menu date-pay_menu pay-blank__item-set" name="month-delivery">
+									</select>
+								</span>
+
+								<span>
+									<!-- <label for="year-delivery">Year:</label> -->
+									<select id="year-delivery" class="pay_menu date-pay_menu pay-blank__item-set" name="year-delivery">
+									</select>
+								</span>
+							</div>
+						</div>
+					</div>
+					<!-- п'ята сеція -->
+					<div class="pay-credit-card__block pay-block__container">
+						<div class="pay__block">
+							<dl>Type of Credit Card
+								<span class="pay-type-card__message design-message__text"></span>
+							</dl>
+							<div id="type-credit-card__block">
+								<input type="radio" name="type-credit-card" id="visa-type-card">
+								<input type="radio" name="type-credit-card" id="mastercard-type-card">
+								<label for="visa-type-card" class="visa-type-card">
+									<img src="img/card/visa.png">
+								</label>
+								<label for="mastercard-type-card" class="mastercard-type-card">
+									<img src="img/card/mastercard.png">
+								</label>
+							</div>
+						</div>
+						<div class="pay__block">
+							<dl>Card number</dl>
+							<input id="number-card-pay" class="pay-blank__item-set" type="text" name="number-card-pay" placeholder="7523 1862 4632 4589">
+							<span class="payment-message__text design-message__text"></span>
+						</div>
+						<div class="pay__block">
+							<dl>Expiration</dl>
+							<input id="expiration-card-pay" class="pay-blank__item-set" type="text" name="expiration-card-pay" placeholder="06/24">
+							<span class="payment-message__text design-message__text"></span>
+						</div>
+						<div class="pay__block">
+							<dl>CVV</dl>
+							<input id="cvv-card-pay" class="pay-blank__item-set" type="text" name="cvv-card-pay" placeholder="236">
+							<span class="payment-message__text design-message__text"></span>
+						</div>
+					</div>
+					<!-- шоста сеція -->
+					<div class="pay-save-account__block pay-block__container">
+						<div class="pay-save-account__container checkbox-display-none">
+							<input id="address-save-account" type="checkbox" name="address-save-account">
+							<label for="address-save-account" class="address-save-account">
+								<div></div>
+								<span>Create account</span>
+							</label>
+						</div>
+						<div id="create-account__block">
+							<div class="pay__block">
+								<dl>Name</dl>
+								<input id="name-create-account-pay" class="pay-blank__item-set" type="text" name="name-create-account-pay" placeholder="Alex234">
+								<span class="cre-acc-payment-message__text design-message__text"></span>
+							</div>
+							<div class="pay__block">
+								<dl>Password</dl>
+								<input id="pass-create-account-pay" class="pay-blank__item-set" type="password" name="pass-create-account-pay" placeholder="******">
+								<span class="cre-acc-payment-message__text design-message__text"></span>
+							</div>
+							<div class="pay__block">
+								<dl>Confirm Password</dl>
+								<input id="con-pass-create-account-pay" class="pay-blank__item-set" type="password" name="con-pass-create-account-pay" placeholder="*****">
+								<span class="cre-acc-payment-message__text design-message__text"></span>
+							</div>
+						</div>
+						<script>
+							let createAccountCheckbox = document.querySelector('#address-save-account');
+							let createAccountBlock = document.querySelector('#create-account__block');
+
+							function deliveryCreateAccountBlockDesign(input, block) {
+								if(!input.checked){
+									block.style.pointerEvents = 'none';
+									block.style.opacity = '0.3';
+								} else if (input.checked) {
+									block.style.pointerEvents = 'auto';
+									block.style.opacity = '1';
+								}
+							}
+
+							createAccountCheckbox.onchange = function() {
+								deliveryCreateAccountBlockDesign(createAccountCheckbox, createAccountBlock);
+							}
+						</script>
+					</div>
+
+				</form>
+
+				<div class="customer-contacts__button">
+					<button id="payment__button" class="customer__button">Submit</button>
+				</div>
+
+			</div>
+		</main>
+		<div class="sidebar-right">
+			<div class="calendar">
+				<div id="datepicker"></div>
+			</div>
+		</div>
+		<footer>
+			<div>bikeShop 2021</div>
+		</footer>
+
+		<!-- JS -->
+		<script src="js/getLocalNameGoods.js"></script>
+		<script src="js/date.js"></script>
+		<script src="js/burgerMenu.js"></script>
+		<script src="js/paymentForm.js"></script>
+		<script src="js/script.js"></script>
+	</body>
+</html>

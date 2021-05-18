@@ -236,7 +236,7 @@ main{
   margin: 50px 25%;
 }
 
-.customer-contacts__text{
+.title-page__text{
   font-size: 40px;
   margin-bottom: 20px;
 }
@@ -323,9 +323,177 @@ input.true-registr{
 .btn-facebook__text{
   font-size: 18px;
 }
-.message__text{
+.design-message__text{
   color: rgb(207, 24, 27);
   font-size: 11px;
+}
+// payment-file
+#payment{
+  // margin: 50px 30%;
+  width: 100%;
+  grid-column-gap: 30px;
+  grid-row-gap: 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto auto;
+  grid-template-areas: 
+    "pay-title pay-title pay-title" 
+    "pay-model-bike pay-customer pay-credit-card"
+    "pay-date-delivery pay-address-delivery pay-save-account";
+
+  .title-page__text{
+    grid-area: pay-title;
+  }
+  .pay-model-bike__block{
+    grid-area: pay-model-bike;
+  }
+  .pay-customer__block{
+    grid-area: pay-customer;
+  }
+  .pay-address-delivery__block{
+    grid-area: pay-address-delivery;
+  }
+  .pay-date-delivery__block{
+    grid-area: pay-date-delivery;
+  }
+  .pay-credit-card__block{
+    grid-area: pay-credit-card;
+  }
+  .pay-save-account__block{
+    grid-area: pay-save-account;
+  }
+  div.pay__block{
+    padding: 3px 0px;
+    margin-bottom: 7px;
+  }
+  dl{
+    font-size: 15px;
+  }
+  select{
+    background: transparent;
+  }
+  input, .pay_menu{
+    height: 35px;
+    width: 100%;
+    border: 1px solid black;
+    margin: 7px 0px 0px 0px;
+    padding: 0px 0px 5px 10px;
+    font-size: 16px;
+    &:focus{
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    }
+  }
+  .pay-block__container{
+    border-top: 2px solid $color;
+  }
+  .date-pay_menu{
+    max-width: auto !important;
+  }
+  .pay__date-delivery{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.pay__title{
+  text-align: center !important;
+}
+.pay_menu.textarea{
+  height: 120px !important;
+  padding-top: 5px !important;
+  font-size: 14px !important;
+  font-family: Arial;
+}
+#create-account__block{
+  pointer-events: none;
+  opacity: 0.3;
+}
+.checkbox-display-none{
+  display: flex;
+  margin: 8px 0px;
+  input{
+    position: absolute;
+    visibility: hidden;
+  }
+  label{
+    cursor: pointer;
+    display: inline-block;
+    display: flex;
+    span{
+      cursor: pointer;
+      display: block;
+      margin: 3px 0px 0px 5px;
+    }
+    div{
+      display: inline-block;
+      height: 18px;
+      width: 18px;
+      border: 1px solid black;
+    }
+  }
+}
+#address-repeat-pay:checked ~ .address-repeat-pay,
+#address-save-account:checked ~ .address-save-account{
+  div{
+    background: $color;
+    &:before{
+      position: absolute;
+      content: '✔';
+      display: block;
+      margin: -3px 0px 0px 0px;
+      font-size: 22px;
+      color: white;
+    }
+  }
+}
+#type-credit-card__block{
+  display: flex;
+  justify-content: space-around;
+  input{
+    position: absolute;
+    visibility: hidden;
+  }
+  label{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    &:hover{
+      border-radius: 10px;
+      background: rgb(230, 230, 230);
+      box-shadow: inset 0px 0px 20px 12px white;
+    }
+    img{
+      width: 70%;
+    }
+  }
+}
+#visa-type-card:checked ~ .visa-type-card,
+#mastercard-type-card:checked ~ .mastercard-type-card{
+  background: rgb(220, 220, 220);
+  box-shadow: inset 0px 0px 20px 12px white;
+}
+
+// payment-BLANK-file
+.pay-blank__container{
+  display: flex;
+  justify-content: center;
+}
+.pay-blank{
+  margin: 50px 0px 0px 0px;
+  font-size: 23px;
+}
+.pay-blank__item,
+.pay-blank__item-type-card{
+  margin: 15px 0px;
+  color: grey;
+  img{
+    margin-top: -25px;
+    margin-bottom: -25px;
+    height: 70px;
+  }
+}
+.pay-blank__item-get{
+  color: black;
 }
 
 // homePage-file
@@ -433,6 +601,15 @@ footer{
 }
 
 @media(max-width: 1100px){
+  #payment{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: 
+      "pay-title pay-title" 
+      "pay-model-bike pay-date-delivery "
+      "pay-customer pay-credit-card"
+      "pay-address-delivery pay-save-account";
+  }
   .main{
   // margin: 20px;
   grid-column-gap: 20px;
@@ -506,7 +683,7 @@ footer{
       align-items: center;
     }
   }
-  .customer-contacts__text{
+  .title-page__text{
     text-shadow: 0 0 1px black;
   }
   .image{
@@ -648,5 +825,20 @@ footer{
   #map{
     width: 100%;
     height: 300px;
+  }
+}
+
+@media(max-width: 500px){
+  #payment{
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(7, auto);
+    grid-template-areas: 
+      "pay-title" 
+      "pay-model-bike"
+      "pay-customer"
+      "pay-address-delivery"
+      "pay-date-delivery"
+      "pay-credit-card"
+      "pay-save-account";
   }
 }
